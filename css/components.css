@@ -361,14 +361,14 @@
 }
 .hero__display {
   font-weight: 800;
-  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
-  letter-spacing: -0.025em;
-  line-height: 1.14;
+  font-size: clamp(1.875rem, 4.4vw, 3.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.28;
   color: var(--color-paper);
+  text-wrap: balance;
 }
 .hero__display-line {
   display: block;
-  white-space: nowrap;
 }
 .hero__display em {
   font-style: normal;
