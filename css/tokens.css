@@ -1,0 +1,112 @@
+/* =========================================================
+   Design Tokens — KYODO PR Landing Page
+   Brand language: navy × cool gray × white. Sans-serif only.
+   Reference: https://www.kyodo-pr.co.jp/
+   "NEWS DESIGN COMPANY / 100年をつなぐコミュニケーション"
+   ========================================================= */
+
+:root {
+  /* ---- Color (solid) ---- */
+  --color-ink: #0a1f4a;        /* deep navy: dark sections, headings */
+  --color-ink-2: #0e2a66;      /* slightly lighter navy (hover for ink) */
+  --color-brand: #0072b9;      /* KPR blue (from kpr-logo.svg "KYODO" letters) */
+  --color-brand-2: #005a93;    /* darker brand blue (hover for links) */
+  --color-paper: #ffffff;       /* base */
+  --color-stone: #f6f7f8;       /* light gray fill (slightly cool) */
+  --color-stone-2: #eceff2;     /* slightly darker stone */
+  --color-line: #dfe2e6;        /* hairline rule */
+  --color-text: #1a1d24;        /* body text */
+  --color-muted: #6a6e78;       /* secondary text */
+  --color-mute-2: #c3c8c8;      /* KPR gray (from kpr-logo.svg "PR" letters) */
+  --color-error: #b8341d;       /* form error only */
+
+  /* ---- Color (transparent helpers) ---- */
+  --ink-90: rgb(10 31 74 / 0.9);
+  --ink-75: rgb(10 31 74 / 0.75);
+  --ink-65: rgb(10 31 74 / 0.65);
+  --ink-50: rgb(10 31 74 / 0.5);
+  --ink-30: rgb(10 31 74 / 0.3);
+  --ink-15: rgb(10 31 74 / 0.15);
+  --ink-08: rgb(10 31 74 / 0.08);
+  --ink-04: rgb(10 31 74 / 0.04);
+
+  --text-90: rgb(26 29 36 / 0.9);
+  --text-75: rgb(26 29 36 / 0.75);
+  --text-65: rgb(26 29 36 / 0.65);
+  --text-55: rgb(26 29 36 / 0.55);
+  --text-40: rgb(26 29 36 / 0.4);
+
+  --paper-95: rgb(255 255 255 / 0.95);
+  --paper-90: rgb(255 255 255 / 0.9);
+  --paper-75: rgb(255 255 255 / 0.75);
+  --paper-65: rgb(255 255 255 / 0.65);
+  --paper-50: rgb(255 255 255 / 0.5);
+  --paper-30: rgb(255 255 255 / 0.3);
+  --paper-15: rgb(255 255 255 / 0.15);
+
+  /* ---- Typography ---- */
+  /* Sans-serif only; weight handles hierarchy. */
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", system-ui, -apple-system, sans-serif;
+  --font-en: "Inter", "Helvetica Neue", "Arial", var(--font-sans);
+
+  --leading-tight: 1.18;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+  --leading-loose: 1.95;
+
+  /* Fluid type scale */
+  --text-display-xl: clamp(2.5rem, 5.5vw, 4.5rem);
+  --text-display-lg: clamp(2rem, 4vw, 3rem);
+  --text-display-md: clamp(1.5rem, 2.6vw, 2rem);
+  --text-h3: 1.25rem;
+  --text-body-lg: 1.0625rem;
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.78rem;
+  --text-2xs: 0.75rem;
+
+  /* ---- Spacing scale ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ---- Layout ---- */
+  --container: 75rem;
+  --container-narrow: 57.5rem;
+  --header-h: 4.5rem;
+  --gutter: var(--space-6);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
+  --ease-snap: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-reveal: 600ms;
+
+  /* ---- Z-index ---- */
+  --z-skip: 100;
+  --z-bottom-cta: 35;
+  --z-header: 40;
+  --z-modal: 50;
+
+  /* ---- Radii ---- */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-pill: 999px;
+}
+
+@media (min-width: 1024px) {
+  :root { --gutter: var(--space-10); }
+}
