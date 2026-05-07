@@ -547,7 +547,11 @@
 }
 
 /* Scroll variant: card has max-height; fields scroll while consent + CTA pin at bottom */
-.hero__form-card--scroll { display: flex; flex-direction: column; max-height: calc(100vh - 7rem); }
+.hero__form-card--scroll {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 20rem);
+}
 .hero__form-card--scroll .hero__form { display: flex; flex-direction: column; gap: var(--space-4); flex: 1; min-height: 0; }
 .hero__form-fields {
   display: flex;
