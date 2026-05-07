@@ -437,6 +437,14 @@
 .hero__display-line {
   display: block;
 }
+.hero__display-line:first-child {
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--paper-75);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  margin-bottom: var(--space-3);
+}
 .hero__display em {
   font-style: normal;
   color: var(--color-paper);
