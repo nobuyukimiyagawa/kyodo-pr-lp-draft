@@ -27,9 +27,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap">
 
-  <!-- Hero background preload (LCP) -->
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1764083267311-8a2f37838051?w=2400&q=80&auto=format&fit=crop" fetchpriority="high">
-
   <!-- Styles -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
@@ -95,8 +92,22 @@
 
     <!-- ============================== ① HERO ============================== -->
     <section id="top" class="hero" aria-labelledby="hero-title">
+      <div class="hero__mosaic" aria-hidden="true">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2026/03/eye_catch_image.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/08/a6013587ac8a830ca07d5475307e28b2.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/07/eye_catch_image.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/05/a442e84087f017164cd7f3c46c5a288c.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/04/9f70f6980775f60743e4f92a9e15464a.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/03/eye_catch_image.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/01/9ca7ee1d8e0af4c917096c1e024feb78-2.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/09/eye_catch_image.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/08/f15039f4b4b2f6c32c1d270ebbf383cd-1.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/07/eye_catch_image.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/09/SunshineCity_4_3_w.jpg" alt="" loading="eager" decoding="async">
+        <img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/07/michelin_4_3.jpg" alt="" loading="eager" decoding="async">
+      </div>
       <div class="container">
-        <p class="hero__tagline reveal">NEW'S DESIGN COMPANY ─ 100 年をつなぐコミュニケーション</p>
+        <p class="hero__tagline reveal">NEW'S DESIGN COMPANY ─ 100年のコミュニケーションとブランドを未来へつなぐ</p>
 
         <div class="hero__grid">
           <div class="reveal">
@@ -196,46 +207,6 @@
       </div>
     </section>
 
-    <!-- ============================== PROOF (logos + media) ============================== -->
-    <section class="section section--stone" aria-label="信頼の証跡">
-      <div class="container">
-        <div class="logos reveal" style="margin-top:0">
-          <div class="logos__marquee">
-            <div class="logos__track">
-              <ul class="logos__set">
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2026/03/eye_catch_image.jpg" alt="ゴディバ" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/08/a6013587ac8a830ca07d5475307e28b2.jpg" alt="ジャパンフリトレー" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/07/eye_catch_image.jpg" alt="リーガロイヤルホテル大阪" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/05/a442e84087f017164cd7f3c46c5a288c.jpg" alt="サーモス" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/04/9f70f6980775f60743e4f92a9e15464a.jpg" alt="ルンドベック・ジャパン" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/03/eye_catch_image.jpg" alt="ハズブロジャパン" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/01/9ca7ee1d8e0af4c917096c1e024feb78-2.jpg" alt="Snowflake" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/09/eye_catch_image.jpg" alt="東京理科大学" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/08/f15039f4b4b2f6c32c1d270ebbf383cd-1.jpg" alt="フィンエアー" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/07/eye_catch_image.jpg" alt="東京シティ競馬" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/09/SunshineCity_4_3_w.jpg" alt="サンシャインシティ" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/07/michelin_4_3.jpg" alt="日本ミシュランタイヤ" loading="lazy" decoding="async"></li>
-              </ul>
-              <ul class="logos__set" aria-hidden="true">
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2026/03/eye_catch_image.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/08/a6013587ac8a830ca07d5475307e28b2.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/07/eye_catch_image.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/05/a442e84087f017164cd7f3c46c5a288c.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/04/9f70f6980775f60743e4f92a9e15464a.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/03/eye_catch_image.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2025/01/9ca7ee1d8e0af4c917096c1e024feb78-2.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/09/eye_catch_image.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/08/f15039f4b4b2f6c32c1d270ebbf383cd-1.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2024/07/eye_catch_image.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/09/SunshineCity_4_3_w.jpg" alt="" loading="lazy" decoding="async"></li>
-                <li class="logos__item"><img src="https://press.kyodo-pr.co.jp/wp-content/uploads/sites/3/2023/07/michelin_4_3.jpg" alt="" loading="lazy" decoding="async"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <!-- ============================== ② PROBLEM ============================== -->
     <section id="problem" class="section section--dark" aria-labelledby="problem-title">
