@@ -402,8 +402,7 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    linear-gradient(180deg, rgb(10 31 74 / 0.78) 0%, rgb(10 31 74 / 0.88) 50%, rgb(10 31 74 / 0.94) 100%);
+  background: linear-gradient(180deg, rgb(64 127 255 / 78%) 0%, rgb(10 31 74 / 0) 100%, rgb(255 255 255 / 94%) 100%);
 }
 .hero::after {
   content: "";
