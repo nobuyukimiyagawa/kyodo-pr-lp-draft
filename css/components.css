@@ -731,8 +731,16 @@
 .hero__note { color: var(--paper-65); }
 
 /* CTA buttons on dark hero */
-.hero .btn--ghost { border-color: var(--paper-30); color: var(--color-paper); }
-.hero .btn--ghost:hover { background: rgb(255 255 255 / 0.08); border-color: var(--color-paper); }
+.hero .btn--ghost {
+  background: var(--color-paper);
+  border-color: var(--color-paper);
+  color: var(--color-ink);
+}
+.hero .btn--ghost:hover {
+  background: rgb(255 255 255 / 0.9);
+  border-color: rgb(255 255 255 / 0.9);
+  color: var(--color-ink);
+}
 
 .hero__cta {
   margin-top: var(--space-10);
