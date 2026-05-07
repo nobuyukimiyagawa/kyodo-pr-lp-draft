@@ -181,9 +181,102 @@
     map.forEach((_, sec) => io.observe(sec));
   };
 
+  /* ----- Hero form variant swap (?form=step) + step navigation ----- */
+  const initFormVariant = () => {
+    const params = new URLSearchParams(location.search);
+    const requested = params.get("form") === "step" ? "step" : "scroll";
+    const variants = $$("[data-form-variant]");
+    if (!variants.length) return;
+    variants.forEach((el) => {
+      el.hidden = el.dataset.formVariant !== requested;
+    });
+    if (requested === "step") initHeroFormStep();
+  };
+
+  const initHeroFormStep = () => {
+    const form = $("#heroFormStep");
+    if (!form) return;
+    const steps = $$(".step", form);
+    const current = $(".step-current");
+    const total = $(".step-total");
+    const back = $(".step__back", form);
+    const next = $(".step__next", form);
+    const submit = $(".step__submit", form);
+    const progressBar = $(".hero__form-progress-bar");
+    if (total) total.textContent = String(steps.length);
+
+    const setActive = (index) => {
+      steps.forEach((s, i) => {
+        if (i === index) s.setAttribute("data-active", "true");
+        else s.removeAttribute("data-active");
+      });
+      if (current) current.textContent = String(index + 1);
+      if (back) back.disabled = index === 0;
+      const isLast = index === steps.length - 1;
+      if (next) next.hidden = isLast;
+      if (submit) submit.hidden = !isLast;
+      if (progressBar) progressBar.style.width = `${((index + 1) / steps.length) * 100}%`;
+      // Focus first input/select in active step
+      const focusable = steps[index].querySelector("input, select");
+      if (focusable) setTimeout(() => focusable.focus({ preventScroll: true }), 80);
+    };
+
+    let idx = 0;
+    setActive(idx);
+
+    const validateCurrent = () => {
+      const fields = $$("input, select", steps[idx]);
+      for (const f of fields) {
+        if (f.required && !f.checkValidity()) {
+          f.focus();
+          return false;
+        }
+      }
+      return true;
+    };
+
+    if (next) {
+      next.addEventListener("click", () => {
+        if (!validateCurrent()) return;
+        if (idx < steps.length - 1) {
+          idx++;
+          setActive(idx);
+        }
+      });
+    }
+    if (back) {
+      back.addEventListener("click", () => {
+        if (idx > 0) {
+          idx--;
+          setActive(idx);
+        }
+      });
+    }
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!validateCurrent()) return;
+      // Placeholder: real submit endpoint would go here
+      alert("ご入力ありがとうございました。担当者よりご連絡いたします。");
+    });
+    // Allow Enter key on inputs to advance
+    form.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter") return;
+      const tag = e.target.tagName;
+      if (tag === "TEXTAREA") return;
+      if (tag === "BUTTON") return;
+      e.preventDefault();
+      if (idx === steps.length - 1) {
+        if (submit) submit.click();
+      } else {
+        if (next) next.click();
+      }
+    });
+  };
+
   /* ----- Init ----- */
   document.addEventListener("DOMContentLoaded", () => {
     initReveal();
+    initFormVariant();
     initHeroForm();
     initForm();
     initBottomCta();

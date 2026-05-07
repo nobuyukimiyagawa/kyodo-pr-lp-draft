@@ -233,19 +233,13 @@
             </p>
           </div>
 
-          <aside class="hero__form-card reveal" aria-label="資料ダウンロードフォーム">
+          <aside class="hero__form-card hero__form-card--scroll reveal" aria-label="資料ダウンロードフォーム" data-form-variant="scroll">
             <header class="hero__form-head">
-              <div class="hero__form-title-row">
-                <p class="hero__form-title">資料ダウンロード</p>
-                <svg class="hero__form-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 4v12"/>
-                  <path d="M7 11l5 5 5-5"/>
-                  <path d="M5 20h14"/>
-                </svg>
-              </div>
+              <p class="hero__form-title">資料ダウンロード</p>
               <p class="hero__form-meta">所要 30 秒</p>
             </header>
             <form id="heroForm" class="hero__form" novalidate>
+              <div class="hero__form-fields">
               <div class="field--row">
                 <div class="field">
                   <label for="hf-last-name">姓 <span aria-hidden="true">*</span></label>
@@ -337,6 +331,7 @@
                   <option value="other">その他</option>
                 </select>
               </div>
+              </div><!-- /.hero__form-fields -->
               <label class="hero__form-consent">
                 <input type="checkbox" name="agree" required aria-required="true">
                 <span>共同ピーアール株式会社の<a href="#privacy">プライバシーポリシー</a>に同意する</span>
@@ -345,6 +340,125 @@
                 <span>ダウンロードする</span>
                 <span aria-hidden="true">↓</span>
               </button>
+              <p class="hero__form-foot">24時間以内にご返信いたします</p>
+            </form>
+          </aside>
+
+          <aside class="hero__form-card hero__form-card--step reveal" aria-label="資料ダウンロードフォーム（ステップ式）" data-form-variant="step" hidden>
+            <header class="hero__form-head">
+              <p class="hero__form-title">資料ダウンロード</p>
+              <p class="hero__form-meta"><span class="step-current">1</span> / <span class="step-total">8</span></p>
+            </header>
+            <div class="hero__form-progress" aria-hidden="true"><span class="hero__form-progress-bar"></span></div>
+            <form id="heroFormStep" class="hero__form-step" novalidate>
+              <fieldset class="step" data-step="1" data-active="true">
+                <legend class="step__legend">お名前を教えてください</legend>
+                <div class="field--row">
+                  <div class="field">
+                    <label for="hfs-last-name">姓</label>
+                    <input id="hfs-last-name" name="last_name" type="text" required placeholder="山田" autocomplete="family-name">
+                  </div>
+                  <div class="field">
+                    <label for="hfs-first-name">名</label>
+                    <input id="hfs-first-name" name="first_name" type="text" required placeholder="太郎" autocomplete="given-name">
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="2">
+                <legend class="step__legend">会社・団体名は？</legend>
+                <div class="field">
+                  <label for="hfs-company">会社・団体名</label>
+                  <input id="hfs-company" name="company" type="text" required placeholder="共同ピーアール株式会社" autocomplete="organization">
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="3">
+                <legend class="step__legend">メールアドレスを教えてください</legend>
+                <div class="field">
+                  <label for="hfs-email">メールアドレス</label>
+                  <input id="hfs-email" name="email" type="email" required placeholder="taro@example.com" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" pattern="[^\s@]+@[^\s@]+\.[^\s@]+">
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="4">
+                <legend class="step__legend">電話番号は？</legend>
+                <div class="field">
+                  <label for="hfs-phone">電話番号</label>
+                  <input id="hfs-phone" name="phone" type="tel" required placeholder="03-0000-0000" autocomplete="tel" inputmode="tel">
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="5">
+                <legend class="step__legend">最も興味があるサービスは？</legend>
+                <div class="field">
+                  <label for="hfs-interest">サービス</label>
+                  <select id="hfs-interest" name="interest" required>
+                    <option value="">選択してください</option>
+                    <option value="pr-consulting">広報・PRコンサルティング</option>
+                    <option value="digital-pr">デジタルPR</option>
+                    <option value="tv-pr">テレビPR</option>
+                    <option value="media-relations">メディアリレーション</option>
+                    <option value="crisis">危機管理広報・メディアトレーニング</option>
+                    <option value="ir">IR・ESG広報</option>
+                    <option value="overseas">海外PR</option>
+                    <option value="influencer">インフルエンサーマーケティング</option>
+                    <option value="content">コンテンツPR</option>
+                    <option value="education">広報教育（広報の学校）</option>
+                    <option value="ai">AI活用支援</option>
+                    <option value="sakae">SAKAE for Client（PR分析ダッシュボード）</option>
+                    <option value="ma-pr">M&amp;A・事業提携広報</option>
+                    <option value="other">その他</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="6">
+                <legend class="step__legend">対象は？</legend>
+                <div class="field">
+                  <label for="hfs-target">対象</label>
+                  <select id="hfs-target" name="target" required>
+                    <option value="">選択してください</option>
+                    <option value="own">自社商材</option>
+                    <option value="client">クライアント商材</option>
+                    <option value="other">その他</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="7">
+                <legend class="step__legend">当サイトをどこで知りましたか？</legend>
+                <div class="field">
+                  <label for="hfs-source">流入元</label>
+                  <select id="hfs-source" name="source" required>
+                    <option value="">選択してください</option>
+                    <option value="google">Google検索</option>
+                    <option value="yahoo">Yahoo!検索</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="x">X</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="referral">紹介</option>
+                    <option value="kpr-site">共同ピーアールホームページ</option>
+                    <option value="dm">DM/メルマガ</option>
+                    <option value="seminar">セミナー</option>
+                    <option value="press">プレスリリース</option>
+                    <option value="media">メディア掲載</option>
+                    <option value="exhibition">展示会</option>
+                    <option value="other">その他</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="step" data-step="8">
+                <legend class="step__legend">最後に、ご確認をお願いします</legend>
+                <label class="hero__form-consent">
+                  <input type="checkbox" name="agree" required aria-required="true">
+                  <span>共同ピーアール株式会社の<a href="#privacy">プライバシーポリシー</a>に同意する</span>
+                </label>
+              </fieldset>
+
+              <div class="step__nav">
+                <button type="button" class="step__back" disabled>← 戻る</button>
+                <button type="button" class="step__next">次へ →</button>
+                <button type="submit" class="step__submit hero__form-cta" hidden>
+                  <span>ダウンロードする</span>
+                  <span aria-hidden="true">↓</span>
+                </button>
+              </div>
               <p class="hero__form-foot">24時間以内にご返信いたします</p>
             </form>
           </aside>

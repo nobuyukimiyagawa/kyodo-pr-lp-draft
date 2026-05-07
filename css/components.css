@@ -530,11 +530,7 @@
   border-bottom: 1px solid var(--color-line);
   padding-bottom: var(--space-4);
   margin-bottom: var(--space-5);
-}
-.hero__form-title-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+  flex-shrink: 0;
 }
 .hero__form-title {
   font-weight: 700;
@@ -543,18 +539,30 @@
   color: var(--color-ink);
   margin: 0;
 }
-.hero__form-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: var(--color-brand);
-  flex: none;
-}
 .hero__form-meta {
   font-size: var(--text-xs);
   color: var(--color-brand);
   font-weight: 600;
   letter-spacing: 0.06em;
 }
+
+/* Scroll variant: card has max-height; fields scroll while consent + CTA pin at bottom */
+.hero__form-card--scroll { display: flex; flex-direction: column; max-height: calc(100vh - 7rem); }
+.hero__form-card--scroll .hero__form { display: flex; flex-direction: column; gap: var(--space-4); flex: 1; min-height: 0; }
+.hero__form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: var(--space-2);
+  margin-right: calc(var(--space-2) * -1);
+}
+.hero__form-fields::-webkit-scrollbar { width: 6px; }
+.hero__form-fields::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 3px; }
+.hero__form-fields::-webkit-scrollbar-track { background: transparent; }
+
 .hero__form { display: grid; gap: var(--space-4); }
 .hero__form .field { gap: var(--space-1); }
 .hero__form .field > label {
@@ -633,6 +641,88 @@
   text-align: center;
   line-height: 1.5;
 }
+
+/* ===== Hero form: STEP variant (?form=step) ===== */
+.hero__form-card--step { display: flex; flex-direction: column; }
+.hero__form-progress {
+  height: 3px;
+  background: var(--color-line);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--space-5);
+  flex-shrink: 0;
+}
+.hero__form-progress-bar {
+  display: block;
+  height: 100%;
+  width: 12.5%;
+  background: var(--color-brand);
+  transition: width var(--dur-base) var(--ease-out);
+}
+.hero__form-step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
+}
+.step {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.step[data-active="true"] {
+  display: flex;
+  animation: stepFade 0.3s var(--ease-out);
+}
+@keyframes stepFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.step__legend {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  line-height: 1.45;
+}
+.step__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.step__back,
+.step__next {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.step__back:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.step__next {
+  background: var(--color-brand);
+  color: var(--color-paper);
+  border-color: var(--color-brand);
+  margin-left: auto;
+}
+.step__next:hover { background: var(--color-brand-2); border-color: var(--color-brand-2); }
+.step__back:not(:disabled):hover { background: var(--color-stone, var(--color-line)); }
+.step__submit { margin-left: auto; flex: 0 0 auto; width: auto; padding-inline: var(--space-6); }
 
 /* Override authority strip & note for dark hero */
 .hero .authority { border-color: var(--paper-15); color: var(--paper-65); }
