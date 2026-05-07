@@ -522,11 +522,23 @@
   padding-bottom: var(--space-4);
   margin-bottom: var(--space-5);
 }
+.hero__form-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
 .hero__form-title {
   font-weight: 700;
   font-size: 1.0625rem;
   letter-spacing: -0.01em;
   color: var(--color-ink);
+  margin: 0;
+}
+.hero__form-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--color-brand);
+  flex: none;
 }
 .hero__form-meta {
   font-size: var(--text-xs);
@@ -542,9 +554,50 @@
   color: var(--color-muted);
   letter-spacing: 0.04em;
 }
-.hero__form .field input {
+.hero__form .field input,
+.hero__form .field select {
   padding: var(--space-2) 0;
   font-size: 0.95rem;
+}
+.hero__form .field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-line);
+  padding-right: 1.5em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none' stroke='%236a6e78' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4l3 3 3-3'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  cursor: pointer;
+  color: var(--color-ink);
+}
+.hero__form .field--row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.hero__form-consent {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--color-mute-2);
+  cursor: pointer;
+  margin-top: var(--space-1);
+}
+.hero__form-consent input[type="checkbox"] {
+  flex: none;
+  margin-top: 2px;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--color-brand);
+}
+.hero__form-consent a {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .hero__form-cta {
   margin-top: var(--space-2);

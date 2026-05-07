@@ -233,29 +233,45 @@
             </p>
           </div>
 
-          <aside class="hero__form-card reveal" aria-label="お問い合わせフォーム">
+          <aside class="hero__form-card reveal" aria-label="資料ダウンロードフォーム">
             <header class="hero__form-head">
-              <p class="hero__form-title">資料 ＋ PR 診断</p>
+              <div class="hero__form-title-row">
+                <p class="hero__form-title">資料ダウンロード</p>
+                <svg class="hero__form-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 4v12"/>
+                  <path d="M7 11l5 5 5-5"/>
+                  <path d="M5 20h14"/>
+                </svg>
+              </div>
               <p class="hero__form-meta">所要 30 秒</p>
             </header>
             <form id="heroForm" class="hero__form" novalidate>
+              <div class="field--row">
+                <div class="field">
+                  <label for="hf-last-name">姓 <span aria-hidden="true">*</span></label>
+                  <input id="hf-last-name" name="last_name" type="text" required
+                         placeholder="山田"
+                         autocomplete="family-name"
+                         aria-required="true">
+                </div>
+                <div class="field">
+                  <label for="hf-first-name">名 <span aria-hidden="true">*</span></label>
+                  <input id="hf-first-name" name="first_name" type="text" required
+                         placeholder="太郎"
+                         autocomplete="given-name"
+                         aria-required="true">
+                </div>
+              </div>
               <div class="field">
-                <label for="hf-company">会社名</label>
-                <input id="hf-company" class="invalid" name="company" type="text" required
+                <label for="hf-company">会社・団体名 <span aria-hidden="true">*</span></label>
+                <input id="hf-company" name="company" type="text" required
                        placeholder="共同ピーアール株式会社"
                        autocomplete="organization"
                        aria-required="true">
               </div>
               <div class="field">
-                <label for="hf-name">お名前</label>
-                <input id="hf-name" class="invalid" name="name" type="text" required
-                       placeholder="山田 太郎"
-                       autocomplete="name"
-                       aria-required="true">
-              </div>
-              <div class="field">
-                <label for="hf-email">メールアドレス</label>
-                <input id="hf-email" class="invalid" name="email" type="email" required
+                <label for="hf-email">メールアドレス <span aria-hidden="true">*</span></label>
+                <input id="hf-email" name="email" type="email" required
                        placeholder="taro@example.com"
                        autocomplete="email"
                        inputmode="email"
@@ -264,11 +280,72 @@
                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                        aria-required="true">
               </div>
+              <div class="field">
+                <label for="hf-phone">電話番号 <span aria-hidden="true">*</span></label>
+                <input id="hf-phone" name="phone" type="tel" required
+                       placeholder="03-0000-0000"
+                       autocomplete="tel"
+                       inputmode="tel"
+                       aria-required="true">
+              </div>
+              <div class="field">
+                <label for="hf-interest">最も興味があるサービス <span aria-hidden="true">*</span></label>
+                <select id="hf-interest" name="interest" required aria-required="true">
+                  <option value="">選択してください</option>
+                  <option value="pr-consulting">広報・PRコンサルティング</option>
+                  <option value="digital-pr">デジタルPR</option>
+                  <option value="tv-pr">テレビPR</option>
+                  <option value="media-relations">メディアリレーション</option>
+                  <option value="crisis">危機管理広報・メディアトレーニング</option>
+                  <option value="ir">IR・ESG広報</option>
+                  <option value="overseas">海外PR</option>
+                  <option value="influencer">インフルエンサーマーケティング</option>
+                  <option value="content">コンテンツPR</option>
+                  <option value="education">広報教育（広報の学校）</option>
+                  <option value="ai">AI活用支援</option>
+                  <option value="sakae">SAKAE for Client（PR分析ダッシュボード）</option>
+                  <option value="ma-pr">M&amp;A・事業提携広報</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="hf-target">対象 <span aria-hidden="true">*</span></label>
+                <select id="hf-target" name="target" required aria-required="true">
+                  <option value="">選択してください</option>
+                  <option value="own">自社商材</option>
+                  <option value="client">クライアント商材</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="hf-source">こちらのサイトをどこで知りましたか？ <span aria-hidden="true">*</span></label>
+                <select id="hf-source" name="source" required aria-required="true">
+                  <option value="">選択してください</option>
+                  <option value="google">Google検索</option>
+                  <option value="yahoo">Yahoo!検索</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="x">X</option>
+                  <option value="linkedin">LinkedIn</option>
+                  <option value="referral">紹介</option>
+                  <option value="kpr-site">共同ピーアールホームページ</option>
+                  <option value="dm">DM/メルマガ</option>
+                  <option value="seminar">セミナー</option>
+                  <option value="press">プレスリリース</option>
+                  <option value="media">メディア掲載</option>
+                  <option value="exhibition">展示会</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+              <label class="hero__form-consent">
+                <input type="checkbox" name="agree" required aria-required="true">
+                <span>共同ピーアール株式会社の<a href="#privacy">プライバシーポリシー</a>に同意する</span>
+              </label>
               <button type="submit" class="hero__form-cta">
-                <span>送信する</span>
-                <span aria-hidden="true">→</span>
+                <span>ダウンロードする</span>
+                <span aria-hidden="true">↓</span>
               </button>
-              <p class="hero__form-foot">プライバシーポリシーに同意の上、送信ください。<br>営業電話の追客はいたしません。</p>
+              <p class="hero__form-foot">営業電話の追客はいたしません／24時間以内にご返信</p>
             </form>
           </aside>
         </div>
