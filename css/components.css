@@ -369,11 +369,11 @@
   animation: heroFlow 60s linear infinite;
   will-change: transform;
 }
-.hero__col:nth-child(1) .hero__col-track { animation-duration: 52s; animation-delay: 0s; }
-.hero__col:nth-child(2) .hero__col-track { animation-duration: 70s; animation-delay: -18s; }
-.hero__col:nth-child(3) .hero__col-track { animation-duration: 58s; animation-delay: -34s; }
-.hero__col:nth-child(4) .hero__col-track { animation-duration: 76s; animation-delay: -12s; }
-.hero__col:nth-child(5) .hero__col-track { animation-duration: 64s; animation-delay: -48s; }
+.hero__col:nth-child(1) .hero__col-track { animation-duration: 28s; animation-delay: 0s; }
+.hero__col:nth-child(2) .hero__col-track { animation-duration: 38s; animation-delay: -10s; }
+.hero__col:nth-child(3) .hero__col-track { animation-duration: 32s; animation-delay: -19s; }
+.hero__col:nth-child(4) .hero__col-track { animation-duration: 42s; animation-delay: -7s; }
+.hero__col:nth-child(5) .hero__col-track { animation-duration: 35s; animation-delay: -26s; }
 
 .hero__col-track li {
   flex: none;
