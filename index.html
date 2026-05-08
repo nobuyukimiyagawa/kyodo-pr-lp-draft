@@ -6,6 +6,113 @@
   <meta name="theme-color" content="#0a1f4a">
   <meta name="format-detection" content="telephone=no">
 
+  <!-- ===== Restricted Preview gate (client-side casual auth) ===== -->
+  <!-- Password is hashed (SHA-256). To change: run
+         echo -n "NEW_PASSWORD" | shasum -a 256
+       and replace the HASH constant below. -->
+  <style>
+    html.kpr-auth-pending body > *:not(#authGate) { display: none !important; }
+    html:not(.kpr-auth-pending) #authGate { display: none !important; }
+    #authGate {
+      position: fixed; inset: 0;
+      background: #0a1f4a; z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .auth-modal {
+      background: #f5f2ec;
+      padding: 40px 32px;
+      max-width: 26rem; width: 100%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+    .auth-modal__eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #0072b9; font-weight: 600;
+      margin: 0 0 10px;
+    }
+    .auth-modal__h {
+      font-size: 1.25rem; font-weight: 700;
+      color: #0a1f4a; letter-spacing: -0.01em;
+      margin: 0 0 14px; line-height: 1.45;
+    }
+    .auth-modal__lead {
+      font-size: 0.875rem; line-height: 1.7;
+      color: #6a6e78; margin: 0 0 24px;
+    }
+    .auth-modal__form { display: flex; flex-direction: column; gap: 12px; }
+    .auth-modal__form input {
+      padding: 14px 12px;
+      border: 1px solid #d4d1c9;
+      background: white; font-size: 16px;
+      font-family: inherit; width: 100%; box-sizing: border-box;
+      outline: none; transition: border-color 0.15s ease;
+    }
+    .auth-modal__form input:focus { border-color: #0072b9; }
+    .auth-modal__form button {
+      padding: 14px;
+      background: #0a1f4a; color: white;
+      border: none; font-weight: 600;
+      font-size: 0.9375rem; letter-spacing: 0.04em;
+      cursor: pointer; transition: background 0.15s ease;
+      font-family: inherit;
+    }
+    .auth-modal__form button:hover { background: #0072b9; }
+    .auth-modal__error {
+      margin: 4px 0 0;
+      font-size: 12px; color: #c5403e;
+      min-height: 1em;
+    }
+    .auth-modal__foot {
+      margin: 24px 0 0;
+      font-size: 11px; color: #9ea0a8;
+      text-align: center; letter-spacing: 0.04em;
+    }
+  </style>
+  <script>
+    (function() {
+      var KEY = "kpr_lp_auth_v1";
+      // SHA-256 of password "kpr2026"  (← change to update)
+      var HASH = "02c96978294cf99d2fad9ba88db5bd17ec05e0cbd39c32988215807c15ff6f4a";
+      try {
+        if (sessionStorage.getItem(KEY) !== HASH) {
+          document.documentElement.classList.add("kpr-auth-pending");
+        }
+      } catch (e) {
+        document.documentElement.classList.add("kpr-auth-pending");
+      }
+      function sha256(text) {
+        var buf = new TextEncoder().encode(text);
+        return crypto.subtle.digest("SHA-256", buf).then(function(h) {
+          return Array.from(new Uint8Array(h))
+            .map(function(b){ return b.toString(16).padStart(2,"0"); })
+            .join("");
+        });
+      }
+      document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById("authForm");
+        if (!form) return;
+        var input = document.getElementById("authPw");
+        var err = document.getElementById("authErr");
+        form.addEventListener("submit", function(e) {
+          e.preventDefault();
+          err.textContent = "";
+          sha256(input.value).then(function(inputHash) {
+            if (inputHash === HASH) {
+              try { sessionStorage.setItem(KEY, HASH); } catch (e) {}
+              document.documentElement.classList.remove("kpr-auth-pending");
+            } else {
+              err.textContent = "パスワードが違います";
+              input.value = "";
+              input.focus();
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
   <title>共同ピーアール株式会社 ─ メディア露出を、経営を動かす「資産」へ</title>
   <meta name="description" content="独立系PR会社・共同ピーアール（1964年創業）。メディア露出を、ただの消費で終わらせない。顧客／組織／世の中の3つの関係を経営の言葉でひとつの設計図にまとめ、評判を事業を動かす資産として設計します。30分のPR診断を公開中。">
 
@@ -69,6 +176,21 @@
 </head>
 
 <body>
+  <!-- ===== Restricted Preview Gate ===== -->
+  <div id="authGate">
+    <div class="auth-modal" role="dialog" aria-labelledby="authH" aria-modal="true">
+      <p class="auth-modal__eyebrow">Restricted Preview</p>
+      <h1 class="auth-modal__h" id="authH">関係者限定プレビュー</h1>
+      <p class="auth-modal__lead">本サイトは現在、関係者限定で公開しています。閲覧にはパスワードをご入力ください。</p>
+      <form class="auth-modal__form" id="authForm" autocomplete="off">
+        <input type="password" id="authPw" placeholder="パスワード" autocomplete="off" autofocus required>
+        <button type="submit">入る</button>
+        <p class="auth-modal__error" id="authErr" aria-live="polite"></p>
+      </form>
+      <p class="auth-modal__foot">共同ピーアール株式会社 経営層向けLP / 株式会社BUUM</p>
+    </div>
+  </div>
+
   <a href="#main" class="skip">本文にスキップ</a>
 
   <!-- ============================== HEADER ============================== -->
